@@ -239,11 +239,11 @@ class Connection
     private function createRequest($method, $endpoint, $body = null, array $params = [], array $headers = [])
     {
         // Add default json headers to the request
-        $headers = array_merge($headers, [
+        $headers = array_merge([
             'Accept'       => 'application/json',
             'Content-Type' => 'application/json',
             'Prefer'       => 'return=representation',
-        ]);
+        ], $headers);
 
         $this->checkOrAcquireAccessToken();
 
